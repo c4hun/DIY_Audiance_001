@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnificant Dynamic Design</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="chew">
+        <div class="navbar">
+            <img src="Radiance_img/logo.png" class="logo">
+            <div class="user">
+                <button type="button">Audiance</button>
+                <img src="Radiance_img/user.png">
+            </div>
+
+        </div>
+
+        <!-- Please do not write with class=logo, that will hide the logo-->
+        <div class="container">
+  
+            <div class="info">
+                <h1>DÉCOUVERTE</h1>
+                <p>Il y a, dans le sentiment de ses forces, une jouissance inappréciable, comme il y en a dans la découverte de toute vérité intime. <br>- Charles-Victor Bonstetten</p>
+                <input type="text" placeholder="Rechercher">
+            </div>
+        </div>
+
+        <div class="slider">
+            <img src="Radiance_img/left-arrow.png" id="prev">
+            <div class="preview">
+                <img src="Radiance_img/small1.png" class="active thumbnail">
+                <img src="Radiance_img/small2.png" class="thumbnail">
+                <img src="Radiance_img/small3.png" class="thumbnail">
+                <img src="Radiance_img/small4.png" class="thumbnail">
+                <img src="Radiance_img/small5.png" class="thumbnail">
+            </div>
+            <img src="Radiance_img/right-arrow.png" id="next">
+        </div>
+
+    </div>
+
+
+    <script>
+
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+        var thumbnail = document.getElementsByClassName("thumbnail");
+        var chew = document.getElementById("chew");
+
+        var backgroundImg = new Array(
+            "Radiance_img/bg1.png",
+            "Radiance_img/bg2.png",
+            "Radiance_img/bg3.png",
+            "Radiance_img/bg4.png",
+            "Radiance_img/bg5.png",
+        );
+        let i = 0;
+        next.onclick = function(){
+            if(i < 4){
+                chew.style.backgroundImage = 'url("'+backgroundImg[i+1]+'")';
+                thumbnail[i+1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i++;
+            }
+
+        }
+        prev.onclick = function(){
+            if(i > 0){
+                chew.style.backgroundImage = 'url("'+backgroundImg[i-1]+'")';
+                thumbnail[i-1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i--;
+            }
+
+        }
+
+    </script>
+
+
+</body>
+</html>
